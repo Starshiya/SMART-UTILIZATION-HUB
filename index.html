@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StarShiyaHub</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- LOADING SCREEN -->
+    <section id="loadingScreen" class="screen loading-screen">
+
+        <div class="loader-container">
+
+            <div class="logo-circle">
+                <span>✦</span>
+            </div>
+
+            <h1>StarShiya<span>HUB</span></h1>
+
+            <p id="loadingText">Initializing...</p>
+
+            <div class="progress-box">
+                <div id="progressBar"></div>
+            </div>
+
+            <div class="percentage">
+                <span id="percentage">0</span>%
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- LOGO SCREEN -->
+    <section id="logoScreen" class="screen logo-screen hidden">
+
+        <div class="logo-animation">
+
+            <div class="big-logo">
+                ✦
+            </div>
+
+            <h1>StarShiya<span>HUB</span></h1>
+
+            <p>Your everyday digital toolkit</p>
+
+        </div>
+
+    </section>
+
+
+    <!-- HOME -->
+    <main id="homeScreen" class="home-screen hidden">
+
+        <header>
+
+            <div class="brand">
+                <div class="mini-logo">✦</div>
+
+                <div>
+                    <h2>StarShiyaHUB</h2>
+                    <small>Smart Utility Hub</small>
+                </div>
+            </div>
+
+            <div class="header-time" id="headerTime">
+                00:00:00
+            </div>
+
+        </header>
+
+
+        <section class="hero">
+
+            <div>
+                <p class="welcome">WELCOME BACK 👋</p>
+
+                <h1>
+                    Everything you need,
+                    <span>in one place.</span>
+                </h1>
+
+                <p class="hero-description">
+                    A simple collection of smart tools for your everyday tasks.
+                </p>
+            </div>
+
+        </section>
+
+
+        <!-- TOOLS -->
+        <section class="tools-section">
+
+            <div class="section-title">
+                <h2>My Tools</h2>
+                <p>Choose a tool to get started</p>
+            </div>
+
+
+            <div class="tools-grid">
+
+                <!-- CALCULATOR -->
+                <button class="tool-card calculator-card" onclick="openTool('calculator')">
+
+                    <div class="tool-icon">🔢</div>
+
+                    <div class="tool-info">
+                        <h3>Calculator</h3>
+                        <p>Calculate anything quickly</p>
+                    </div>
+
+                    <span class="arrow">→</span>
+
+                </button>
+
+
+                <!-- NOTES -->
+                <button class="tool-card notes-card" onclick="openTool('notes')">
+
+                    <div class="tool-icon">📝</div>
+
+                    <div class="tool-info">
+                        <h3>Notes</h3>
+                        <p>Write and save your thoughts</p>
+                    </div>
+
+                    <span class="arrow">→</span>
+
+                </button>
+
+
+                <!-- CLOCK -->
+                <button class="tool-card clock-card" onclick="openTool('clock')">
+
+                    <div class="tool-icon">🕐</div>
+
+                    <div class="tool-info">
+                        <h3>Clock</h3>
+                        <p>Time, stopwatch & timer</p>
+                    </div>
+
+                    <span class="arrow">→</span>
+
+                </button>
+
+
+                <!-- CAMERA -->
+                <button class="tool-card camera-card" onclick="openTool('camera')">
+
+                    <div class="tool-icon">📷</div>
+
+                    <div class="tool-info">
+                        <h3>Camera</h3>
+                        <p>Capture moments</p>
+                    </div>
+
+                    <span class="arrow">→</span>
+
+                </button>
+
+
+                <!-- GALLERY -->
+                <button class="tool-card gallery-card" onclick="openTool('gallery')">
+
+                    <div class="tool-icon">🖼️</div>
+
+                    <div class="tool-info">
+                        <h3>Gallery</h3>
+                        <p>View your saved photos</p>
+                    </div>
+
+                    <span class="arrow">→</span>
+
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- TOOL PAGES -->
+
+    <!-- CALCULATOR -->
+    <section id="calculatorTool" class="tool-page hidden">
+
+        <button class="back-btn" onclick="closeTool()">← Back</button>
+
+        <div class="tool-page-content">
+
+            <h1>🔢 Calculator</h1>
+            <p>Simple & powerful calculator</p>
+
+            <div class="calculator">
+
+                <input
+                    type="text"
+                    id="calcDisplay"
+                    readonly
+                    placeholder="0"
+                >
+
+                <div class="calc-buttons">
+
+                    <button onclick="clearCalculator()" class="danger">AC</button>
+                    <button onclick="deleteNumber()">⌫</button>
+                    <button onclick="calculatePercent()">%</button>
+                    <button onclick="addOperator('/')">÷</button>
+
+                    <button onclick="addNumber('7')">7</button>
+                    <button onclick="addNumber('8')">8</button>
+                    <button onclick="addNumber('9')">9</button>
+                    <button onclick="addOperator('*')">×</button>
+
+                    <button onclick="addNumber('4')">4</button>
+                    <button onclick="addNumber('5')">5</button>
+                    <button onclick="addNumber('6')">6</button>
+                    <button onclick="addOperator('-')">−</button>
+
+                    <button onclick="addNumber('1')">1</button>
+                    <button onclick="addNumber('2')">2</button>
+                    <button onclick="addNumber('3')">3</button>
+                    <button onclick="addOperator('+')">+</button>
+
+                    <button onclick="addNumber('0')" class="zero">0</button>
+                    <button onclick="addNumber('.')">.</button>
+                    <button onclick="calculate()" class="equal">=</button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- NOTES -->
+    <section id="notesTool" class="tool-page hidden">
+
+        <button class="back-btn" onclick="closeTool()">← Back</button>
+
+        <div class="tool-page-content">
+
+            <h1>📝 Notes</h1>
+            <p>Your personal notes</p>
+
+            <div class="notes-container">
+
+                <div class="note-input">
+
+                    <input
+                        id="noteTitle"
+                        type="text"
+                        placeholder="Note title..."
+                    >
+
+                    <textarea
+                        id="noteContent"
+                        placeholder="Write your note here..."
+                    ></textarea>
+
+                    <button onclick="saveNote()" class="primary-btn">
+                        + Save Note
+                    </button>
+
+                </div>
+
+                <div id="notesList" class="notes-list"></div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CLOCK -->
+    <section id="clockTool" class="tool-page hidden">
+
+        <button class="back-btn" onclick="closeTool()">← Back</button>
+
+        <div class="tool-page-content">
+
+            <h1>🕐 Clock</h1>
+
+            <div class="clock-box">
+
+                <div id="bigClock">
+                    00:00:00
+                </div>
+
+                <div id="clockDate">
+                    Monday, January 1
+                </div>
+
+            </div>
+
+
+            <div class="stopwatch">
+
+                <h2>Stopwatch</h2>
+
+                <div id="stopwatchDisplay">
+                    00:00:00
+                </div>
+
+                <div class="stopwatch-buttons">
+
+                    <button onclick="startStopwatch()">Start</button>
+                    <button onclick="stopStopwatch()">Stop</button>
+                    <button onclick="resetStopwatch()">Reset</button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CAMERA -->
+    <section id="cameraTool" class="tool-page hidden">
+
+        <button class="back-btn" onclick="closeTool()">← Back</button>
+
+        <div class="tool-page-content">
+
+            <h1>📷 Camera</h1>
+            <p>Capture a photo</p>
+
+            <div class="camera-container">
+
+                <video id="cameraVideo" autoplay playsinline></video>
+
+                <canvas id="cameraCanvas"></canvas>
+
+                <div class="camera-buttons">
+
+                    <button onclick="startCamera()" class="primary-btn">
+                        Start Camera
+                    </button>
+
+                    <button onclick="takePhoto()" class="capture-btn">
+                        ●
+                    </button>
+
+                </div>
+
+                <p id="cameraMessage"></p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- GALLERY -->
+    <section id="galleryTool" class="tool-page hidden">
+
+        <button class="back-btn" onclick="closeTool()">← Back</button>
+
+        <div class="tool-page-content">
+
+            <h1>🖼️ Gallery</h1>
+            <p>Your captured photos</p>
+
+            <div class="upload-area">
+
+                <label for="imageUpload">
+                    + Add Images
+                </label>
+
+                <input
+                    type="file"
+                    id="imageUpload"
+                    accept="image/*"
+                    multiple
+                    onchange="uploadImages(event)"
+                >
+
+            </div>
+
+            <div id="galleryGrid" class="gallery-grid"></div>
+
+        </div>
+
+    </section>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
