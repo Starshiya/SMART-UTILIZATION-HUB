@@ -1,0 +1,759 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #050816;
+    --card: #0d1428;
+    --card-light: #111b35;
+    --blue: #4da3ff;
+    --cyan: #38d9ff;
+    --text: #f5f7ff;
+    --muted: #8c96ad;
+    --border: rgba(255,255,255,0.08);
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+button {
+    font-family: inherit;
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+/* =========================
+   LOADING SCREEN
+========================= */
+
+.screen {
+    min-height: 100vh;
+    width: 100%;
+}
+
+.loading-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:
+        radial-gradient(circle at center,
+        rgba(55,150,255,0.15),
+        transparent 35%),
+        var(--bg);
+}
+
+.loader-container {
+    width: min(420px, 90%);
+    text-align: center;
+}
+
+.logo-circle,
+.big-logo {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(
+        135deg,
+        var(--blue),
+        var(--cyan)
+    );
+    box-shadow: 0 0 50px rgba(56,170,255,0.4);
+}
+
+.logo-circle {
+    width: 90px;
+    height: 90px;
+    border-radius: 30px;
+    font-size: 42px;
+    margin-bottom: 25px;
+    animation: float 2s infinite ease-in-out;
+}
+
+.loader-container h1,
+.logo-animation h1 {
+    font-size: 34px;
+    letter-spacing: 5px;
+}
+
+h1 span,
+.brand h2 {
+    color: var(--cyan);
+}
+
+.loader-container p {
+    color: var(--muted);
+    margin-top: 12px;
+}
+
+.progress-box {
+    width: 100%;
+    height: 7px;
+    background: #151d32;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-top: 35px;
+}
+
+#progressBar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(
+        90deg,
+        var(--blue),
+        var(--cyan)
+    );
+    border-radius: 20px;
+    transition: width 0.1s;
+}
+
+.percentage {
+    margin-top: 15px;
+    color: var(--cyan);
+    font-weight: 700;
+}
+
+
+/* =========================
+   LOGO SCREEN
+========================= */
+
+.logo-screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(circle,
+        rgba(40,140,255,0.15),
+        transparent 40%),
+        var(--bg);
+}
+
+.logo-animation {
+    text-align: center;
+    animation: logoAppear 1.2s ease;
+}
+
+.big-logo {
+    width: 130px;
+    height: 130px;
+    border-radius: 40px;
+    font-size: 65px;
+    margin-bottom: 30px;
+}
+
+.logo-animation p {
+    color: var(--muted);
+    margin-top: 12px;
+}
+
+
+/* =========================
+   HOME
+========================= */
+
+.home-screen {
+    min-height: 100vh;
+    padding: 25px 7%;
+    background:
+        radial-gradient(
+            circle at 80% 10%,
+            rgba(42,135,255,0.1),
+            transparent 30%
+        );
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.mini-logo {
+    width: 45px;
+    height: 45px;
+    border-radius: 13px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: linear-gradient(
+        135deg,
+        var(--blue),
+        var(--cyan)
+    );
+
+    font-size: 22px;
+}
+
+.brand h2 {
+    letter-spacing: 2px;
+    font-size: 18px;
+}
+
+.brand small {
+    color: var(--muted);
+}
+
+.header-time {
+    color: var(--cyan);
+    font-weight: 600;
+}
+
+.hero {
+    padding: 100px 0 70px;
+    max-width: 850px;
+}
+
+.welcome {
+    color: var(--cyan);
+    font-size: 13px;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(42px, 7vw, 78px);
+    line-height: 1.05;
+}
+
+.hero h1 span {
+    display: block;
+    background: linear-gradient(
+        90deg,
+        var(--blue),
+        var(--cyan)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-description {
+    color: var(--muted);
+    margin-top: 25px;
+    font-size: 17px;
+}
+
+
+/* =========================
+   TOOLS
+========================= */
+
+.section-title {
+    margin-bottom: 25px;
+}
+
+.section-title h2 {
+    font-size: 25px;
+}
+
+.section-title p {
+    color: var(--muted);
+    margin-top: 5px;
+}
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    max-width: 1000px;
+}
+
+.tool-card {
+    position: relative;
+
+    border: 1px solid var(--border);
+    background: rgba(13,20,40,0.8);
+
+    border-radius: 22px;
+
+    padding: 25px;
+
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    text-align: left;
+    color: white;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s,
+        border 0.3s,
+        background 0.3s;
+}
+
+.tool-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(56,217,255,0.4);
+    background: var(--card-light);
+}
+
+.tool-icon {
+    width: 60px;
+    height: 60px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 17px;
+
+    background: rgba(77,163,255,0.1);
+
+    font-size: 30px;
+}
+
+.tool-info h3 {
+    font-size: 18px;
+}
+
+.tool-info p {
+    color: var(--muted);
+    margin-top: 5px;
+    font-size: 13px;
+}
+
+.arrow {
+    margin-left: auto;
+    font-size: 22px;
+    color: var(--cyan);
+}
+
+.gallery-card {
+    grid-column: span 2;
+}
+
+
+/* =========================
+   TOOL PAGE
+========================= */
+
+.tool-page {
+    min-height: 100vh;
+    padding: 30px 7%;
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(50,150,255,0.12),
+            transparent 35%
+        );
+}
+
+.back-btn {
+    border: 1px solid var(--border);
+    background: var(--card);
+    color: white;
+
+    padding: 12px 20px;
+    border-radius: 12px;
+
+    cursor: pointer;
+}
+
+.tool-page-content {
+    max-width: 800px;
+    margin: 60px auto;
+}
+
+.tool-page-content > h1 {
+    font-size: 42px;
+}
+
+.tool-page-content > p {
+    color: var(--muted);
+    margin-top: 8px;
+    margin-bottom: 35px;
+}
+
+
+/* =========================
+   CALCULATOR
+========================= */
+
+.calculator {
+    max-width: 420px;
+    margin: auto;
+    background: var(--card);
+    padding: 20px;
+    border-radius: 25px;
+    border: 1px solid var(--border);
+}
+
+#calcDisplay {
+    width: 100%;
+    height: 90px;
+
+    background: #070b17;
+    border: none;
+
+    color: white;
+
+    font-size: 32px;
+    text-align: right;
+
+    padding: 20px;
+
+    border-radius: 15px;
+
+    margin-bottom: 15px;
+}
+
+.calc-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.calc-buttons button {
+    height: 65px;
+
+    border: none;
+    border-radius: 15px;
+
+    background: #151e36;
+    color: white;
+
+    font-size: 19px;
+
+    cursor: pointer;
+}
+
+.calc-buttons button:hover {
+    background: #203052;
+}
+
+.calc-buttons .danger {
+    color: #ff7777;
+}
+
+.calc-buttons .equal {
+    background: linear-gradient(
+        135deg,
+        var(--blue),
+        var(--cyan)
+    );
+}
+
+.calc-buttons .zero {
+    grid-column: span 2;
+}
+
+
+/* =========================
+   NOTES
+========================= */
+
+.notes-container {
+    display: grid;
+    gap: 25px;
+}
+
+.note-input {
+    background: var(--card);
+    padding: 20px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+}
+
+.note-input input,
+.note-input textarea {
+    width: 100%;
+    background: #070b17;
+    color: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 15px;
+    outline: none;
+    margin-bottom: 12px;
+}
+
+.note-input textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+.primary-btn {
+    border: none;
+    background: linear-gradient(
+        135deg,
+        var(--blue),
+        var(--cyan)
+    );
+    color: white;
+    padding: 13px 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.notes-list {
+    display: grid;
+    gap: 15px;
+}
+
+.note {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 20px;
+}
+
+.note h3 {
+    color: var(--cyan);
+}
+
+.note p {
+    margin-top: 10px;
+    color: #c3c8d5;
+    white-space: pre-wrap;
+}
+
+.delete-note {
+    margin-top: 15px;
+    border: none;
+    background: #2a1420;
+    color: #ff7d91;
+    padding: 8px 13px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+
+/* =========================
+   CLOCK
+========================= */
+
+.clock-box {
+    text-align: center;
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 50px 20px;
+    border-radius: 25px;
+}
+
+#bigClock {
+    font-size: clamp(45px, 10vw, 80px);
+    font-weight: 700;
+    color: var(--cyan);
+}
+
+#clockDate {
+    color: var(--muted);
+    margin-top: 10px;
+}
+
+.stopwatch {
+    margin-top: 25px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 25px;
+    padding: 30px;
+    text-align: center;
+}
+
+#stopwatchDisplay {
+    font-size: 45px;
+    margin: 20px 0;
+}
+
+.stopwatch-buttons button {
+    padding: 11px 18px;
+    margin: 5px;
+    background: #18223d;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+
+/* =========================
+   CAMERA
+========================= */
+
+.camera-container {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 25px;
+    padding: 20px;
+    text-align: center;
+}
+
+#cameraVideo,
+#cameraCanvas {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 18px;
+    background: black;
+}
+
+#cameraCanvas {
+    display: none;
+}
+
+.camera-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+}
+
+.capture-btn {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    border: 6px solid #33415f;
+    background: white;
+    color: transparent;
+    cursor: pointer;
+}
+
+
+/* =========================
+   GALLERY
+========================= */
+
+.upload-area {
+    margin-bottom: 25px;
+}
+
+.upload-area label {
+    display: inline-block;
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 13px 20px;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+#imageUpload {
+    display: none;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.gallery-item {
+    position: relative;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.gallery-delete {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    border: none;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes float {
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes logoAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width: 700px) {
+
+    .home-screen {
+        padding: 20px;
+    }
+
+    .hero {
+        padding: 70px 0 50px;
+    }
+
+    .hero h1 {
+        font-size: 45px;
+    }
+
+    .tools-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-card {
+        grid-column: span 1;
+    }
+
+    .header-time {
+        display: none;
+    }
+
+    .tool-page {
+        padding: 20px;
+    }
+
+    .tool-page-content {
+        margin-top: 40px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gallery-item img {
+        height: 140px;
+    }
+
+}
